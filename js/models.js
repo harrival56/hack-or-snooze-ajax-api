@@ -96,7 +96,15 @@ class StoryList {
   
   // makes request to delete an ownstory from the api
   async deleteAstory(user, storyId) {
+    const username = user.username
+    const story = this.stories.find(story => story.storyId == storyId)
+    const storyUsername = story.username
+    if (username !== storyUsername){
+      alert("You are not the author of the story")
+      return
+    }
     const token = user.loginToken
+
     await axios({
       url: `${BASE_URL}/stories/${storyId}`,
       method: "DELETE",

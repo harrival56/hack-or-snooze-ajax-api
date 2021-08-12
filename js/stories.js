@@ -123,9 +123,8 @@ async function submitNewStory(){
   const newStoryMarkUp = generateStoryMarkup(myNewStory)
   // update the page with newest story
   $allStoriesList.prepend(newStoryMarkUp)
-  author = ''
-  title = ''
-  url = ''
+
+  $("#submit-form").trigger("reset")
   $("#submit-form").hide()
 
 }
